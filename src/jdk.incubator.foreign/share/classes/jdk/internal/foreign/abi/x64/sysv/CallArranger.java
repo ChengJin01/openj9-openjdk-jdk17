@@ -134,14 +134,9 @@ public class CallArranger {
         return handle;
     }
 
+    /* Replace ProgrammableUpcallHandler in OpenJDK with the implementation of ProgrammableUpcallHandler specific to OpenJ9 */
     public static UpcallHandler arrangeUpcall(MethodHandle target, MethodType mt, FunctionDescriptor cDesc) {
-        Bindings bindings = getBindings(mt, cDesc, true);
-
-        if (bindings.isInMemoryReturn) {
-            target = SharedUtils.adaptUpcallForIMR(target, true /* drop return, since we don't have bindings for it */);
-        }
-
-        return ProgrammableUpcallHandler.make(CSysV, target, bindings.callingSequence);
+       throw new InternalError("arrangeUpcall is not yet implemented"); //$NON-NLS-1$
     }
 
     private static boolean isInMemoryReturn(Optional<MemoryLayout> returnLayout) {
