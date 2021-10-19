@@ -54,6 +54,6 @@ public class CallArranger {
 
 	/* Replace ProgrammableUpcallHandler in OpenJDK with the implementation of ProgrammableUpcallHandler specific to OpenJ9 */
 	public static UpcallHandler arrangeUpcall(MethodHandle target, MethodType mt, FunctionDescriptor cDesc) {
-		throw new InternalError("arrangeUpcall is not yet implemented"); //$NON-NLS-1$
+		return ProgrammableUpcallHandler.makeUpcall(target, mt, cDesc);
 	}
 }
