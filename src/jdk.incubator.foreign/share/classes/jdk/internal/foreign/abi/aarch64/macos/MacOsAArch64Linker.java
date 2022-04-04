@@ -96,7 +96,7 @@ public final class MacOsAArch64Linker extends AbstractCLinker {
         Objects.requireNonNull(target);
         Objects.requireNonNull(function);
         target = SharedUtils.boxVaLists(target, MH_boxVaList);
-        return UpcallStubs.upcallAddress(CallArranger.arrangeUpcall(target, target.type(), function), (ResourceScopeImpl) scope);
+        return UpcallStubs.upcallAddress(CallArranger.arrangeUpcall(target, target.type(), function, scope), (ResourceScopeImpl) scope);
     }
 
     public static VaList newVaList(Consumer<VaList.Builder> actions, ResourceScope scope) {
