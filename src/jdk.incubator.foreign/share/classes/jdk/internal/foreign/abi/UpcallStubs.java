@@ -22,6 +22,13 @@
  * or visit www.oracle.com if you need additional information or have any
  * questions.
  */
+
+/*
+ * ===========================================================================
+ * (c) Copyright IBM Corp. 2022, 2022 All Rights Reserved
+ * ===========================================================================
+ */
+
 package jdk.internal.foreign.abi;
 
 import jdk.incubator.foreign.MemoryAddress;
@@ -41,6 +48,7 @@ public class UpcallStubs {
         if (!freeUpcallStub0(stubAddress)) {
             throw new IllegalStateException("Not a stub address: " + stubAddress);
         }
+        ProgrammableUpcallHandler.removeUpcallThunkCacheEntry(stubAddress);
     }
 
     // natives
