@@ -317,7 +317,7 @@ Java_jdk_internal_loader_NativeLibraries_findBuiltinLib
     return NULL;
 }
 
-#if defined(_AIX)
+//#if defined(_AIX)
 /*
  * Class:     jdk_internal_loader_NativeLibraries
  * Method:    findEntryInProcess
@@ -343,4 +343,4 @@ Java_jdk_internal_loader_NativeLibraries_findEntryInProcess
     (*env)->ReleaseStringUTFChars(env, name, cname);
     return res;
 }
-#endif /* defined(_AIX) */
+//#endif /* defined(_AIX) */

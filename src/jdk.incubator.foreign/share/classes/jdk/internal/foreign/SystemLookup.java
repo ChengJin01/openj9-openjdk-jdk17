@@ -58,8 +58,8 @@ public class SystemLookup implements SymbolLookup {
      * on Windows. For this reason, on Windows we do not generate any side-library, and load msvcrt.dll directly instead.
      */
     private static final SymbolLookup syslookup = switch (CABI.current()) {
-        case SysV, LinuxAArch64, MacOsAArch64, SysVPPC64le, SysVS390x -> libLookup(libs -> libs.loadLibrary("syslookup"));
-        case AIX -> makeAixLookup();
+        case SysV, LinuxAArch64, MacOsAArch64, SysVS390x -> libLookup(libs -> libs.loadLibrary("syslookup"));
+        case AIX, SysVPPC64le -> makeAixLookup();
         case Win64 -> makeWindowsLookup(); // out of line to workaround javac crash
     };
 

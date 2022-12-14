@@ -66,11 +66,11 @@ void buildJniFunctionName(const char *sym, const char *cname,
     }
 }
 
-#if defined(_AIX)
+//#if defined(_AIX)
 void* findEntryInProcess(const char* name) {
     return JVM_FindLibraryEntry(RTLD_DEFAULT, name);
 }
-#endif /* defined(_AIX) */
+//#endif /* defined(_AIX) */
 
 JNIEXPORT size_t JNICALL
 getLastErrorString(char *buf, size_t len)
